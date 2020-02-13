@@ -7,12 +7,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = (env, options) => ({
-  optimization: {
-    minimizer: [
-      new TerserPlugin({ cache: true, parallel: true, sourceMap: false }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
-  },
+  // optimization: {
+  //   minimizer: [
+  //     new TerserPlugin({ cache: true, parallel: true, sourceMap: false }),
+  //     new OptimizeCSSAssetsPlugin({})
+  //   ]
+  // },
   entry: {
     './js/app.js': glob.sync('./vendor/**/*.js').concat(['./js/app.js'])
   },

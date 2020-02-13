@@ -9,7 +9,7 @@ import css from "../css/app.css"
 //
 // Import dependencies
 //
-import "phoenix_html"
+// import "phoenix_html"
 
 // Import local files
 //
@@ -26,7 +26,7 @@ new Vue({
     render: h => h(InertiaApp, {
         props: {
             initialPage: JSON.parse(app.dataset.page),
-            resolveComponent: name => require(`./Pages/${name}`).default,
+            resolveComponent: name => require(`./pages/${name}`).default,
         },
     }),
 }).$mount(app)

@@ -9,7 +9,7 @@
     <%= csrf_meta_tag() %>
   </head>
   <body>
-    <div id="app" data-page=""></div>
+    <div id="app" data-page="{&quot;component&quot;:&quot;Item\/List&quot;,&quot;props&quot;:{&quot;messages&quot;:[],&quot;items&quot;:[{&quot;id&quot;:8,&quot;name&quot;:&quot;Shoes&quot;,&quot;price&quot;:&quot;5.00&quot;},{&quot;id&quot;:1,&quot;name&quot;:&quot;Bikea&quot;,&quot;price&quot;:&quot;1504.00&quot;},{&quot;id&quot;:7,&quot;name&quot;:&quot;Guitar&quot;,&quot;price&quot;:&quot;650.00&quot;},{&quot;id&quot;:10,&quot;name&quot;:&quot;zxc&quot;,&quot;price&quot;:&quot;450.00&quot;},{&quot;id&quot;:9,&quot;name&quot;:&quot;Telephone&quot;,&quot;price&quot;:&quot;20.00&quot;},{&quot;id&quot;:4,&quot;name&quot;:&quot;Computers&quot;,&quot;price&quot;:&quot;125.00&quot;},{&quot;id&quot;:2,&quot;name&quot;:&quot;Carz&quot;,&quot;price&quot;:&quot;2500.00&quot;},{&quot;id&quot;:3,&quot;name&quot;:&quot;Utez&quot;,&quot;price&quot;:&quot;1650.00&quot;},{&quot;id&quot;:5,&quot;name&quot;:&quot;Television&quot;,&quot;price&quot;:&quot;150.00&quot;},{&quot;id&quot;:6,&quot;name&quot;:&quot;Books&quot;,&quot;price&quot;:&quot;10.00&quot;}]},&quot;url&quot;:&quot;\/item\/&quot;,&quot;version&quot;:null}"></div>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
