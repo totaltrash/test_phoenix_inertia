@@ -15,12 +15,18 @@ import "phoenix_html"
 //
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
+import { InertiaApp } from '@inertiajs/inertia-vue'
 import Vue from 'vue'
-import Test from "./components/Test.vue";
+
+Vue.use(InertiaApp)
+
+const app = document.getElementById('app')
 
 new Vue({
-    render: h => h(Test)
-}).$mount("#app")
-// new Vue({
-//     el: '#app'
-// })
+    render: h => h(InertiaApp, {
+        props: {
+            initialPage: JSON.parse(app.dataset.page),
+            resolveComponent: name => require(`./Pages/${name}`).default,
+        },
+    }),
+}).$mount(app)
