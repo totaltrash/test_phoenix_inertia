@@ -1,0 +1,35 @@
+{
+    "component": "Item/List",
+    "props": {
+        "messages": [],
+        "items": [
+            {
+                "id": 1,
+                "name": "Bikea",
+                "price": "1504.00"
+            },
+            {
+                "id": 2,
+                "name": "Carz",
+                "price": "2500.00"
+            },
+            {
+                "id": 3,
+                "name": "Utez",
+                "price": "1650.00"
+            },
+            {
+                "id": 4,
+                "name": "Computers",
+                "price": "125.00"
+            },
+            {
+                "id": 5,
+                "name": "Television",
+                "price": "150.00"
+            }
+        ]
+    },
+    "url": "/",
+    "version": null
+}
