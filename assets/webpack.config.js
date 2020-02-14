@@ -6,13 +6,13 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 
-module.exports = (env, options) => ({
-  // optimization: {
-  //   minimizer: [
-  //     new TerserPlugin({ cache: true, parallel: true, sourceMap: false }),
-  //     new OptimizeCSSAssetsPlugin({})
-  //   ]
-  // },
+var config = {
+  optimization: {
+    minimizer: [
+      new TerserPlugin({ cache: true, parallel: true, sourceMap: false }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
   entry: {
     './js/app.js': glob.sync('./vendor/**/*.js').concat(['./js/app.js'])
   },
@@ -42,12 +42,28 @@ module.exports = (env, options) => ({
   },
   plugins: [
     new MiniCssExtractPlugin({ filename: '../css/app.css' }),
-    new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
+    new CopyWebpackPlugin([
+      { from: 'static/', to: '../' }
+    ]),
     new VueLoaderPlugin()
   ],
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    }
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': path.resolve('assets/js')
+    },
+    extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.vue', '.ts', '.tsx']
   }
-});
+};
+
+module.exports = (env, options) => {
+  if (options.mode === 'development') {
+    config.devtool = 'source-map';
+  }
+
+  if (options.mode === 'production') {
+    config.devtool = 'inline-source-map';
+  }
+
+  return config;
+};

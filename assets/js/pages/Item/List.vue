@@ -2,7 +2,7 @@
   <div>
     <p>List</p>
     <pre>
-      {{ list }}
+      {{ items }}
     </pre>
   </div>
 </template>
@@ -18,5 +18,4 @@ export default {
     }
   }
 }
-
 </script>
