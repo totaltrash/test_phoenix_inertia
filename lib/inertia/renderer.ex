@@ -1,4 +1,4 @@
-defmodule InertiaWeb.Renderer do
+defmodule Inertia.Renderer do
   @moduledoc """
   """
   import Phoenix.Controller

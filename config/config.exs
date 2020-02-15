@@ -7,15 +7,15 @@
 # General application configuration
 use Mix.Config
 
-config :inertia,
-  ecto_repos: [Inertia.Repo]
+config :my_app,
+  ecto_repos: [MyApp.Repo]
 
 # Configures the endpoint
-config :inertia, InertiaWeb.Endpoint,
+config :my_app, MyAppWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "XLOQCMN9oyt4H8p9FOjcjq7OWcD6uy/2IR9NwMNgeurzeP05BD0N8F0AtV03T6i0",
-  render_errors: [view: InertiaWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Inertia.PubSub, adapter: Phoenix.PubSub.PG2],
+  render_errors: [view: MyAppWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: MyApp.PubSub, adapter: Phoenix.PubSub.PG2],
   live_view: [signing_salt: "c2yVtD4J"]
 
 # Configures Elixir's Logger

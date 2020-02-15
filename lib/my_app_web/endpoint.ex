@@ -1,16 +1,16 @@
-defmodule InertiaWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :inertia
+defmodule MyAppWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :my_app
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_inertia_key",
+    key: "_my_app_key",
     signing_salt: "izj59agH"
   ]
 
-  socket "/socket", InertiaWeb.UserSocket,
+  socket "/socket", MyAppWeb.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -20,7 +20,7 @@ defmodule InertiaWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :inertia,
+    from: :my_app,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
@@ -43,5 +43,5 @@ defmodule InertiaWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug InertiaWeb.Router
+  plug MyAppWeb.Router
 end

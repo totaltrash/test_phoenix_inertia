@@ -1,3 +1,3 @@
-defmodule InertiaWeb.PageViewTest do
-  use InertiaWeb.ConnCase, async: true
+defmodule MyAppWeb.PageViewTest do
+  use MyAppWeb.ConnCase, async: true
 end

@@ -1,5 +1,5 @@
-defmodule InertiaWeb.InertiaView do
-  use InertiaWeb, :view
+defmodule MyAppWeb.InertiaView do
+  use MyAppWeb, :view
 
   def handler_info(conn) do
     "Request Handled By: #{controller_module(conn)}.#{action_name(conn)}"
@@ -10,4 +10,5 @@ defmodule InertiaWeb.InertiaView do
     |> Map.from_struct()
     |> Map.keys()
   end
+
 end

@@ -1,12 +1,12 @@
-defmodule InertiaWeb do
+defmodule MyAppWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use InertiaWeb, :controller
-      use InertiaWeb, :view
+      use MyAppWeb, :controller
+      use MyAppWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,20 +19,20 @@ defmodule InertiaWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: InertiaWeb
+      use Phoenix.Controller, namespace: MyAppWeb
 
       import Plug.Conn
-      import InertiaWeb.Gettext
-      import InertiaWeb.Renderer
-      alias InertiaWeb.Router.Helpers, as: Routes
+      import MyAppWeb.Gettext
+      import Inertia.Renderer
+      alias MyAppWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/inertia_web/templates",
-        namespace: InertiaWeb
+        root: "lib/my_app_web/templates",
+        namespace: MyAppWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1, action_name: 1, controller_module: 1]
@@ -40,9 +40,10 @@ defmodule InertiaWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import InertiaWeb.ErrorHelpers
-      import InertiaWeb.Gettext
-      alias InertiaWeb.Router.Helpers, as: Routes
+      import MyAppWeb.ErrorHelpers
+      import MyAppWeb.Gettext
+      import Inertia.ViewHelpers
+      alias MyAppWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -57,7 +58,7 @@ defmodule InertiaWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import InertiaWeb.Gettext
+      import MyAppWeb.Gettext
     end
   end
 

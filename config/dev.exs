@@ -1,7 +1,7 @@
 use Mix.Config
 
 # Configure your database
-config :inertia, Inertia.Repo,
+config :my_app, MyApp.Repo,
   username: "dblack",
   password: "dbpass",
   database: "test_elixir_inertia_dev",
@@ -15,7 +15,7 @@ config :inertia, Inertia.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :inertia, InertiaWeb.Endpoint,
+config :my_app, MyAppWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -55,13 +55,13 @@ config :inertia, InertiaWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :inertia, InertiaWeb.Endpoint,
+config :my_app, MyAppWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/inertia_web/(live|views)/.*(ex)$",
-      ~r"lib/inertia_web/templates/.*(eex)$"
+      ~r"lib/my_app_web/(live|views)/.*(ex)$",
+      ~r"lib/my_app_web/templates/.*(eex)$"
     ]
   ]
 

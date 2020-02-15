@@ -1,5 +1,5 @@
-defmodule InertiaWeb.Router do
-  use InertiaWeb, :router
+defmodule MyAppWeb.Router do
+  use MyAppWeb, :router
 
   pipeline :inertia do
     plug :accepts, ["html"]
@@ -8,14 +8,14 @@ defmodule InertiaWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug :put_layout, false
-    plug :put_view, InertiaWeb.InertiaView
+    plug :put_view, MyAppWeb.InertiaView
   end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", InertiaWeb do
+  scope "/", MyAppWeb do
     pipe_through :inertia
 
     get "/", PageController, :home
@@ -24,7 +24,7 @@ defmodule InertiaWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", InertiaWeb do
+  # scope "/api", MyAppWeb do
   #   pipe_through :api
   # end
 end

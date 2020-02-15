@@ -1,4 +1,4 @@
-defmodule InertiaWeb.ChannelCase do
+defmodule MyAppWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -11,7 +11,7 @@ defmodule InertiaWeb.ChannelCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use InertiaWeb.ChannelCase, async: true`, although
+  by setting `use MyAppWeb.ChannelCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -23,15 +23,15 @@ defmodule InertiaWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint InertiaWeb.Endpoint
+      @endpoint MyAppWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Inertia.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(MyApp.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Inertia.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(MyApp.Repo, {:shared, self()})
     end
 
     :ok

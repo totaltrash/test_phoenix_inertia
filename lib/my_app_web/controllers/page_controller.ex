@@ -1,5 +1,5 @@
-defmodule InertiaWeb.PageController do
-  use InertiaWeb, :controller
+defmodule MyAppWeb.PageController do
+  use MyAppWeb, :controller
 
   def home(conn, _params) do
     render_inertia(conn, "Home")
