@@ -9,9 +9,9 @@
     <%= csrf_meta_tag() %>
   </head>
   <body>
-    <%= @page %>
     <div id="app" data-page="<%= @page %>"></div>
-
+    <!--
+    <%= @page %>
     <p><%= handler_info(@conn) %></p>
 
     <p>
@@ -21,7 +21,9 @@
     <%= for key <- connection_keys(@conn) do %>
       <p><%= key %></p>
     <% end %>
-
+    <h3>Request Headers</h3>
+    <%= inspect @conn.req_headers %>
+    -->
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

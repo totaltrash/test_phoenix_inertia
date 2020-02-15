@@ -50,7 +50,7 @@ var config = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': path.resolve('assets/js')
+      '~': path.resolve('../assets/js')
     },
     extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.vue', '.ts', '.tsx']
   }

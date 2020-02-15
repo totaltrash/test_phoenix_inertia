@@ -1,4 +1,4 @@
-defmodule InertiaWeb.PageView do
+defmodule InertiaWeb.InertiaView do
   use InertiaWeb, :view
 
   def handler_info(conn) do

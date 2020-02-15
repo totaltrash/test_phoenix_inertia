@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>List</p>
+    <h1>For Sale</h1>
     <pre>
       {{ items }}
     </pre>
@@ -8,9 +8,10 @@
 </template>
 
 <script>
-// import Layout from '~/shared/Layout'
+import AppLayout from '~/shared/Layout'
 
 export default {
+  layout: AppLayout,
   props: {
     items: {
       required: true,

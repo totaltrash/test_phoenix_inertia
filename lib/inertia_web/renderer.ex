@@ -2,12 +2,23 @@ defmodule InertiaWeb.Renderer do
   @moduledoc """
   """
   import Phoenix.Controller
-  def render_inertia(conn, component, props) do
-    render(conn, "index.html", %{page: Jason.encode!(%{
+  import Plug.Conn
+
+  def render_inertia(conn, component, props \\ []) do
+    page = %{
       "component" => component,
       "props" => props,
       "url" => conn.request_path,
       "version" => "1"
-    })})
+    }
+    case get_req_header(conn, "x-inertia") do
+      ["true"] -> 
+        conn
+        |> put_resp_header("x-inertia", "true")
+        |> put_resp_header("vary", "Accept")
+        |> json(page)
+      _ ->
+        render(conn, "app.html", %{page: Jason.encode!(page)})
+    end
   end
 end
