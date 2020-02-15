@@ -3,13 +3,14 @@ defmodule Inertia.Renderer do
   """
   import Phoenix.Controller
   import Plug.Conn
+  import Inertia.Version
 
   def render_inertia(conn, component, props \\ []) do
     page = %{
       "component" => component,
       "props" => props,
       "url" => conn.request_path,
-      "version" => "1"
+      "version" => asset_version()
     }
     case get_req_header(conn, "x-inertia") do
       ["true"] -> 

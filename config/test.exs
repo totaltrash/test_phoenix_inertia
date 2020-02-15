@@ -2,9 +2,9 @@ use Mix.Config
 
 # Configure your database
 config :my_app, MyApp.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "my_app_test",
+  username: "dblack",
+  password: "dbpass",
+  database: "test_elixir_inertia_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
