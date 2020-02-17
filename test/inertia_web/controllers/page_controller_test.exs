@@ -1,6 +1,6 @@
 defmodule MyAppWeb.PageControllerTest do
   use MyAppWeb.ConnCase
-  import Inertia.Version
+  import Inertia
   # import Plug.Conn
 
   test "GET /", %{conn: conn} do
