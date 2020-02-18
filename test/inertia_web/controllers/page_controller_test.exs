@@ -1,6 +1,6 @@
 defmodule MyAppWeb.PageControllerTest do
   use MyAppWeb.ConnCase
-  import Inertia
+  import InertiaPhoenix 
   # import Plug.Conn
 
   test "GET /", %{conn: conn} do
@@ -14,13 +14,13 @@ defmodule MyAppWeb.PageControllerTest do
   test "GET / XHR inertia request", %{conn: conn} do
     conn = conn
     |> put_req_header("x-inertia", "true")
-    |> put_req_header("x-inertia-version", asset_version())
+    |> put_req_header("x-inertia-version", assets_version())
     |> get("/")
 
     assert get_resp_header(conn, "x-inertia") == ["true"]
     
     response = json_response(conn, 200)
-    assert response["version"] == asset_version()
+    assert response["version"] == assets_version()
     assert response["component"] == "Home"
   end
 

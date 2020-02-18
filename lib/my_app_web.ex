@@ -23,7 +23,7 @@ defmodule MyAppWeb do
 
       import Plug.Conn
       import MyAppWeb.Gettext
-      import Inertia.Renderer
+      import InertiaPhoenix.Controller
       alias MyAppWeb.Router.Helpers, as: Routes
     end
   end
@@ -42,7 +42,6 @@ defmodule MyAppWeb do
 
       import MyAppWeb.ErrorHelpers
       import MyAppWeb.Gettext
-      import Inertia.ViewHelpers
       alias MyAppWeb.Router.Helpers, as: Routes
     end
   end

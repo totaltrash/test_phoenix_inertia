@@ -5,11 +5,12 @@ defmodule MyAppWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
-    plug Inertia.Plugs.AssetsCheck
+    # plug Inertia.Plugs.AssetsCheck
+    plug InertiaPhoenix.Plug
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug :put_layout, false
-    plug :put_view, MyAppWeb.InertiaView
+    # plug :put_layout, false
+    # plug :put_view, MyAppWeb.InertiaView
   end
 
   pipeline :api do

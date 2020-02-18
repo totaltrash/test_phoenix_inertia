@@ -1,4 +1,4 @@
-defmodule MyAppWeb.InertiaView do
+defmodule MyAppWeb.LayoutView do
   use MyAppWeb, :view
 
   def handler_info(conn) do

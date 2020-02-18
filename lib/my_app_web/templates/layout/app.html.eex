@@ -9,8 +9,20 @@
     <%= csrf_meta_tag() %>
   </head>
   <body>
-    
-    
+    <%= render @view_module, @view_template, assigns %>
+    <!--
+    <p><%= handler_info(@conn) %></p>
+
+    <p>
+        Request Path: <%= @conn.request_path %>
+    </p>
+    <h3>Keys for the conn Struct</h3>
+    <%= for key <- connection_keys(@conn) do %>
+        <p><%= key %></p>
+    <% end %>
+    <h3>Request Headers</h3>
+    <%= inspect @conn.req_headers %>
+    -->
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
