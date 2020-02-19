@@ -1,9 +1,7 @@
 <template>
   <div>
     <h1>For Sale</h1>
-    <pre>
-      {{ items }}
-    </pre>
+    <pre>{{ items }}</pre>
   </div>
 </template>
 

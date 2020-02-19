@@ -43,7 +43,7 @@ defmodule MyApp.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:inertia_phoenix, path: "../inertia_phoenix"}
+      {:inertia_phoenix, "~> 0.1"}
     ]
   end
 

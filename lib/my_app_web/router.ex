@@ -22,7 +22,8 @@ defmodule MyAppWeb.Router do
 
     get "/", PageController, :home
     get "/about", PageController, :about
-    get "/items/list", PageController, :items
+    get "/items", PageController, :items
+    resources "/users", UserController, except: [:new, :edit]
   end
 
   # Other scopes may use custom stacks.

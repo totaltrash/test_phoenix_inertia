@@ -24,27 +24,32 @@ var config = {
     rules: [
       {
         test: /\.vue$/,
-        exclude: /node_modules/,
+        exclude: /node_modules(?!\/@inkline\/inkline)/,
         loader: 'vue-loader'
       },
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        exclude: /node_modules(?!\/@inkline\/inkline)/,
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
-      }
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules(?!\/@inkline\/inkline)/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ]
+      },
     ]
   },
   plugins: [
     new MiniCssExtractPlugin({ filename: '../css/app.css' }),
-    new CopyWebpackPlugin([
-      { from: 'static/', to: '../' }
-    ]),
+    new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
     new VueLoaderPlugin()
   ],
   resolve: {

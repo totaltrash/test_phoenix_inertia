@@ -1,7 +1,7 @@
 // We need to import the CSS so that webpack will load it.
 // The MiniCssExtractPlugin is used to separate it out into
 // its own CSS file.
-import css from "../css/app.css"
+import "../css/app.css"
 
 // webpack automatically bundles all modules in your
 // entry points. Those entry points can be configured
@@ -17,8 +17,11 @@ import css from "../css/app.css"
 // import socket from "./socket"
 import { InertiaApp } from '@inertiajs/inertia-vue'
 import Vue from 'vue'
+import '@inkline/inkline/dist/inkline.css';
+import Inkline from '@inkline/inkline';
 
 Vue.use(InertiaApp)
+Vue.use(Inkline)
 
 const app = document.getElementById('app')
 
