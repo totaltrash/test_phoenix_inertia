@@ -1,7 +1,13 @@
 defmodule MyAppWeb.PageControllerTest do
   use MyAppWeb.ConnCase
   import InertiaPhoenix 
-  # import Plug.Conn
+
+  @session Plug.Session.init(
+    store: :cookie,
+    key: "_inertia_phoenix",
+    encryption_salt: "yadayada",
+    signing_salt: "yadayada"
+  )
 
   test "GET /", %{conn: conn} do
     response = conn
@@ -22,6 +28,25 @@ defmodule MyAppWeb.PageControllerTest do
     response = json_response(conn, 200)
     assert response["version"] == assets_version()
     assert response["component"] == "Home"
+    assert response["props"] == %{"user" => %{"username" => "dblack"}}
+  end
+
+  test "flash", %{conn: conn} do
+    conn = conn
+    |> put_req_header("x-inertia", "true")
+    |> put_req_header("x-inertia-version", assets_version())
+    |> Plug.Session.call(@session)
+    |> fetch_session()
+    |> fetch_flash()
+    |> put_flash(:info, "Test flash")
+    |> get("/about")
+
+    assert get_resp_header(conn, "x-inertia") == ["true"]
+    
+    response = json_response(conn, 200)
+    assert response["version"] == assets_version()
+    assert response["component"] == "About"
+    assert response["props"] == %{"flash" => %{"info" => "Test flash"}}
   end
 
   test "sends a 409 if an invalid asset version", %{conn: conn} do
@@ -33,6 +58,22 @@ defmodule MyAppWeb.PageControllerTest do
     assert html_response(conn, 409)
     assert get_resp_header(conn, "x-inertia") == ["true"]
     assert get_resp_header(conn, "x-inertia-location") == ["http://www.example.com/about"]
+  end
+
+  test "maintains flash messages following 409", %{conn: conn} do
+    conn = conn
+    |> put_req_header("x-inertia", "true")
+    |> put_req_header("x-inertia-version", "invalid")
+    |> Plug.Session.call(@session)
+    |> fetch_session()
+    |> fetch_flash()
+    |> put_flash(:info, "Test flash")
+    |> get("/about")
+
+    response = assert html_response(conn, 409)
+    assert get_resp_header(conn, "x-inertia") == ["true"]
+    assert get_resp_header(conn, "x-inertia-location") == ["http://www.example.com/about"]
+    assert response["props"] != %{"flash" => %{"info" => "Test flash"}}
   end
 
 

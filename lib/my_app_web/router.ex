@@ -5,12 +5,9 @@ defmodule MyAppWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
-    # plug Inertia.Plugs.AssetsCheck
     plug InertiaPhoenix.Plug
-    plug :protect_from_forgery
+    # plug :protect_from_forgery
     plug :put_secure_browser_headers
-    # plug :put_layout, false
-    # plug :put_view, MyAppWeb.InertiaView
   end
 
   pipeline :api do
@@ -23,6 +20,7 @@ defmodule MyAppWeb.Router do
     get "/", PageController, :home
     get "/about", PageController, :about
     get "/items", PageController, :items
+    post "/form_submit", PageController, :form_submit
     resources "/users", UserController, except: [:new, :edit]
   end
 

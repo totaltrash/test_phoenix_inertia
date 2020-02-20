@@ -8,7 +8,9 @@ defmodule MyAppWeb.UserController do
 
   def index(conn, _params) do
     users = Accounts.list_users()
-    render_inertia(conn, "User/List", props: %{ users: Enum.map(users, fn u -> Map.take(u, [:username, :display_name, :email]) end ) })
+    |> Enum.map(fn u -> Map.take(u, [:id, :username, :display_name, :email]) end )
+
+    render_inertia(conn, "User/List", props: %{ users: users })
   end
 
   def create(conn, %{"user" => user_params}) do
