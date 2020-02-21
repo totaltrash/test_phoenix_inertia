@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>Home</h1>
+    <h1 class="is-1 title">Home</h1>
     <p>Welcome to the home page</p>
-    <i-button @click="$inertia.post('/form_submit')">Send post</i-button>
+    <b-button @click="$inertia.post('/form_submit')">Send post</b-button>
   </div>
 </template>
 

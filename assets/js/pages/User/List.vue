@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Users</h1>
-    <i-datatable :columns="columns" defaultSortKey="username" :rows="users" :countColumn="false" :pagination="false"></i-datatable>
+    <h1 class="is-1 title">Users</h1>
+    <b-table :columns="columns" :data="users"></b-table>
   </div>
 </template>
 
@@ -19,9 +19,9 @@ export default {
   data() {
     return {
       columns: [
-        { title: 'Username', path: 'username', sortable: true },
-        { title: 'Display Name', path: 'display_name', sortable: true },
-        { title: 'Email', path: 'email', sortable: true }
+        { label: 'Username', field: 'username', sortable: true },
+        { label: 'Display Name', field: 'display_name', sortable: true },
+        { label: 'Email', field: 'email', sortable: true }
       ]
     }
   }

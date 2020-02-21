@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>For Sale</h1>
+    <h1 class="is-1 title">For Sale</h1>
     <pre>{{ items }}</pre>
   </div>
 </template>

@@ -17,11 +17,11 @@ import "../css/app.css"
 // import socket from "./socket"
 import { InertiaApp } from '@inertiajs/inertia-vue'
 import Vue from 'vue'
-import '@inkline/inkline/dist/inkline.css';
-import Inkline from '@inkline/inkline';
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
 
+Vue.use(Buefy)
 Vue.use(InertiaApp)
-Vue.use(Inkline)
 
 const app = document.getElementById('app')
 

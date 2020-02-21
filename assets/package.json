@@ -8,7 +8,7 @@
   "dependencies": {
     "@inertiajs/inertia": "^0.1.7",
     "@inertiajs/inertia-vue": "^0.1.2",
-    "@inkline/inkline": "^1.20.10",
+    "buefy": "^0.8.11",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html"
   },
