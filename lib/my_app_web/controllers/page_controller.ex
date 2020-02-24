@@ -11,7 +11,9 @@ defmodule MyAppWeb.PageController do
   end
 
   def form_submit(conn, _params) do
-    put_flash(conn, :info, "Test flash")
+    put_flash(conn, :info, "Info flash")
+    |> put_flash(:danger, "Danger flash!")
+    |> put_flash(:danger, "Another danger flash!")
     |> redirect(to: "/about")
   end
 
