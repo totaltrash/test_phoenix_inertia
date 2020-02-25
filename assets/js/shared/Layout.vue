@@ -11,20 +11,20 @@
           </b-navbar-item>
         </template>
         <template slot="start">
-          <b-navbar-item href="/" @click.prevent="$inertia.visit('/')">Home</b-navbar-item>
-          <b-navbar-item href="/about" @click.prevent="$inertia.visit('/about')">About</b-navbar-item>
-          <b-navbar-item href="/items" @click.prevent="$inertia.visit('/items')">For Sale</b-navbar-item>
-          <b-navbar-item href="/users" @click.prevent="$inertia.visit('/users')">Users</b-navbar-item>
+          <b-navbar-item href="/" tag="inertia-link">Home</b-navbar-item>
+          <b-navbar-item href="/about" tag="inertia-link">About</b-navbar-item>
+          <b-navbar-item href="/items" tag="inertia-link">For Sale</b-navbar-item>
+          <b-navbar-item href="/users" tag="inertia-link">Users</b-navbar-item>
           <b-navbar-dropdown label="Info">
-            <b-navbar-item href="/about" @click.prevent="$inertia.visit('/about')">About</b-navbar-item>
-            <b-navbar-item href="/items" @click.prevent="$inertia.visit('/items')">For Sale</b-navbar-item>
+            <b-navbar-item href="/about" tag="inertia-link">About</b-navbar-item>
+            <b-navbar-item href="/items" tag="inertia-link">For Sale</b-navbar-item>
           </b-navbar-dropdown>
         </template>
 
         <template slot="end">
           <b-navbar-item tag="div">
             <div class="buttons">
-              <a class="button is-primary">
+              <a class="button is-twitter">
                 <strong>Sign up</strong>
               </a>
               <a class="button is-light">Log in</a>
