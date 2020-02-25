@@ -13,9 +13,9 @@ export default {
   layout: AppLayout,
   methods: {
     addToast() {
-      this.$buefy.toast.open({
+      this.$buefy.notification.open({
         message: 'New toast',
-        position: 'is-bottom'
+        position: 'is-bottom-right'
       })
     }
   }

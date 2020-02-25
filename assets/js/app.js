@@ -19,6 +19,10 @@ import { InertiaApp } from '@inertiajs/inertia-vue'
 import Vue from 'vue'
 import Buefy from 'buefy'
 
+// configure axios
+import axios from "axios";
+axios.defaults.xsrfHeaderName = "x-csrf-token";
+
 Vue.use(Buefy)
 Vue.use(InertiaApp)
 
