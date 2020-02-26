@@ -34,5 +34,5 @@ new Vue({
             initialPage: JSON.parse(app.dataset.page),
             resolveComponent: name => require(`./pages/${name}`).default,
         },
-    }),
+    })
 }).$mount(app)

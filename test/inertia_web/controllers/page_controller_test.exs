@@ -60,21 +60,21 @@ defmodule MyAppWeb.PageControllerTest do
     assert get_resp_header(conn, "x-inertia-location") == ["http://www.example.com/about"]
   end
 
-  test "maintains flash messages following 409", %{conn: conn} do
-    conn = conn
-    |> put_req_header("x-inertia", "true")
-    |> put_req_header("x-inertia-version", "invalid")
-    |> Plug.Session.call(@session)
-    |> fetch_session()
-    |> fetch_flash()
-    |> put_flash(:info, "Test flash")
-    |> get("/about")
+  # test "maintains flash messages following 409", %{conn: conn} do
+  #   conn = conn
+  #   |> put_req_header("x-inertia", "true")
+  #   |> put_req_header("x-inertia-version", "invalid")
+  #   |> Plug.Session.call(@session)
+  #   |> fetch_session()
+  #   |> fetch_flash()
+  #   |> put_flash(:info, "Test flash")
+  #   |> get("/about")
 
-    response = assert html_response(conn, 409)
-    assert get_resp_header(conn, "x-inertia") == ["true"]
-    assert get_resp_header(conn, "x-inertia-location") == ["http://www.example.com/about"]
-    assert response["props"] != %{"flash" => %{"info" => "Test flash"}}
-  end
+  #   response = assert html_response(conn, 409)
+  #   assert get_resp_header(conn, "x-inertia") == ["true"]
+  #   assert get_resp_header(conn, "x-inertia-location") == ["http://www.example.com/about"]
+  #   assert response["props"] == %{"flash" => %{"info" => "Test flash"}}
+  # end
 
 
   # test "GET /about", %{conn: conn} do

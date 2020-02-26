@@ -58,10 +58,10 @@ export default {
     flashHandler(page) {
       if (page.flash) {
         for (const [type, message] of Object.entries(page.flash)) {
-          this.$buefy.notification.open({
+          this.$buefy.toast.open({
             message,
             type: 'is-' + type,
-            position: 'is-bottom-right'
+            position: 'is-bottom'
           })
         }
       }
