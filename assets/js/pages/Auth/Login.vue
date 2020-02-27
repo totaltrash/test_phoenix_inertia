@@ -1,7 +1,7 @@
 <template>
   <section class="section is-medium">
-    <div class="columns is-mobile is-centered">
-      <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+    <div class="columns is-mobile is-centered is-variable is-0">
+      <div class="column is-6-tablet is-5-desktop is-4-widescreen">
         <div class="bd-notification is-primary">
           <h1 class="title">My Application</h1>
           <h2 class="subtitle">Login</h2>
@@ -13,10 +13,7 @@
               <b-input type="password" v-model="form.password"></b-input>
             </b-field>
             <b-field>
-              <!-- Label left empty for spacing -->
-              <p class="control">
-                <button class="button is-primary" @click.prevent="submit">Login</button>
-              </p>
+              <button class="button is-primary" @click.prevent="submit">Login</button>
             </b-field>
           </form>
         </div>

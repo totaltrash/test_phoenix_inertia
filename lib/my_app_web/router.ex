@@ -18,11 +18,11 @@ defmodule MyAppWeb.Router do
     plug Pow.Plug.RequireNotAuthenticated, error_handler: MyAppWeb.AuthErrorHandler
   end
   
-  scope "/" do
-    pipe_through :browser
+  scope "/", MyAppWeb do
+    pipe_through [:browser, :not_authenticated]
 
-    get "/login", MyAppWeb.AuthController, :login, as: :login
-    post "/login", MyAppWeb.AuthController, :submit, as: :login_submit
+    get "/login", AuthController, :login_form
+    post "/login", AuthController, :login_submit
   end
 
   scope "/", MyAppWeb do
@@ -34,6 +34,6 @@ defmodule MyAppWeb.Router do
     post "/form_submit", PageController, :form_submit
     resources "/users", UserController, except: [:new, :edit]
 
-    delete "/logout", MyAppWeb.AuthController, :logout
+    delete "/logout", AuthController, :logout
   end
 end

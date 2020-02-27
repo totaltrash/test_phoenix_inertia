@@ -24,10 +24,7 @@
         <template slot="end">
           <b-navbar-item tag="div">
             <div class="buttons">
-              <a class="button is-twitter">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light">Log in</a>
+              <a class="button is-light" @click="logout">Log out</a>
             </div>
           </b-navbar-item>
         </template>
@@ -65,6 +62,9 @@ export default {
           })
         }
       }
+    },
+    logout() {
+      this.$inertia.delete('/logout')
     }
   }
 }
