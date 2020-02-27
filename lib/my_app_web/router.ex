@@ -1,7 +1,7 @@
 defmodule MyAppWeb.Router do
   use MyAppWeb, :router
 
-  pipeline :inertia do
+  pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
@@ -10,22 +10,30 @@ defmodule MyAppWeb.Router do
     plug InertiaPhoenix.Plug
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  pipeline :protected do
+    plug Pow.Plug.RequireAuthenticated, error_handler: MyAppWeb.AuthErrorHandler
+  end
+
+  pipeline :not_authenticated do
+    plug Pow.Plug.RequireNotAuthenticated, error_handler: MyAppWeb.AuthErrorHandler
+  end
+  
+  scope "/" do
+    pipe_through :browser
+
+    get "/login", MyAppWeb.AuthController, :login, as: :login
+    post "/login", MyAppWeb.AuthController, :submit, as: :login_submit
   end
 
   scope "/", MyAppWeb do
-    pipe_through :inertia
+    pipe_through [:browser, :protected]
 
     get "/", PageController, :home
     get "/about", PageController, :about
     get "/items", PageController, :items
     post "/form_submit", PageController, :form_submit
     resources "/users", UserController, except: [:new, :edit]
-  end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", MyAppWeb do
-  #   pipe_through :api
-  # end
+    delete "/logout", MyAppWeb.AuthController, :logout
+  end
 end

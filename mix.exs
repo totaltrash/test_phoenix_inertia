@@ -44,6 +44,7 @@ defmodule MyApp.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:wallaby, "~> 0.23.0", [runtime: false, only: :test]},
+      {:pow, "~> 1.0.18"},
       {:inertia_phoenix, "~> 0.1"}
       # {:inertia_phoenix, path: "../inertia_phoenix"}
     ]

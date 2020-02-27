@@ -12,6 +12,6 @@
 alias MyApp.Accounts.User
 alias MyApp.Repo
 
-Repo.insert!(%User{username: "dblack", display_name: "Darren", email: "dblack@email.com"})
-Repo.insert!(%User{username: "jblow", display_name: "John", email: "jblow@email.com"})
-Repo.insert!(%User{username: "aother", display_name: "Anne", email: "aother@email.com"})
+# Repo.insert!(%User{username: "dblack", display_name: "Darren", email: "dblack@email.com"})
+# Repo.insert!(%User{username: "jblow", display_name: "John", email: "jblow@email.com"})
+# Repo.insert!(%User{username: "aother", display_name: "Anne", email: "aother@email.com"})
