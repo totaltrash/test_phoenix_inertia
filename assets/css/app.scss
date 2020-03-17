@@ -63,9 +63,13 @@ $radius-small: 1px;
 $radius: 2px;
 $radius-large: 3px;
 
+// Inputs
+$input-shadow: none;
+$input-focus-box-shadow-size: 0 0 0 0;
+
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
 
-// html {
-//   font-size: 14px;
-// }
+html {
+  font-size: 14px;
+}

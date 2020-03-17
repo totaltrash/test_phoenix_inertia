@@ -18,11 +18,7 @@ export default {
   },
   data() {
     return {
-      columns: [
-        { label: 'Username', field: 'username', sortable: true },
-        { label: 'Display Name', field: 'display_name', sortable: true },
-        { label: 'Email', field: 'email', sortable: true }
-      ]
+      columns: [{ label: 'Email', field: 'email', sortable: true }]
     }
   }
 }
